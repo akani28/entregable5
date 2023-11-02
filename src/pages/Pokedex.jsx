@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import PokemonList from "../components/pokedex/PokemonList";
 
 const Pokedex = () => {
-  const [pokemons, setPokemons] = useState()
+  const [pokemons, setPokemons] = useState([])
+  const [pokemonName, setPokemonName] = useState(null)
   const trainerName = useSelector((store) => store.trainerName);
   useEffect(()=>{
     axios
@@ -21,7 +22,7 @@ const Pokedex = () => {
         </p>
         <form action="">
           <div>
-            <input type="text" />
+            <input name="pokemonName" type="text" />
             <button>Search</button>
           </div>
           <select>
