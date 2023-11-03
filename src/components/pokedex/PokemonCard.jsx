@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const PokemonCard = ({pokemonUrl}) => {
   const [pokemon, setPokemon] = useState(null)
@@ -8,11 +9,11 @@ const PokemonCard = ({pokemonUrl}) => {
         .get(pokemonUrl)
         .then(({data})=>{
           setPokemon(data)
-          console.log(data)})
+          })
         .catch((err)=>{console.log(err);})
     },[])
   return (
-    <article className='capitalize'>
+    <Link to={`/pokedex/${pokemon?.id}`}  className='capitalize'>
       <header></header>
       <div>
         <div>
@@ -31,8 +32,8 @@ const PokemonCard = ({pokemonUrl}) => {
         </ul>
       </div>
 
-    </article>
-  )
+    </Link>
+      )
 }
 
 export default PokemonCard
