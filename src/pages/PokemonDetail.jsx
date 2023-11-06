@@ -26,8 +26,8 @@ const PokemonDetail = () => {
       });
   }, []);
   return (
-    <main className="py-10 px-2">
-      <article>
+    <main className="py-10 px-2 capitalize text-center">
+      <article className="max-w-[500px] mx-auto">
         <header>
           <img
             src={pokemon?.sprites.other["official-artwork"].front_default}
@@ -37,8 +37,8 @@ const PokemonDetail = () => {
         <h3>{pokemon?.id}</h3>
         <h2>{pokemon?.name}</h2>
         <section>
-          <h3>Stats</h3>
-          <ul>
+          <h3 className="text-start">Stats</h3>
+          <ul className="grid gap-4">
             {pokemon?.stats.map((stat) => (
               <li key={stat.stat.name}>
                 <div className="flex justify-between items-center">
